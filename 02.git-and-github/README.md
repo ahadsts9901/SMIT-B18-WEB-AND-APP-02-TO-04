@@ -4,6 +4,14 @@ Yeh steps follow karke aap apna code GitHub par push kar sakte ho.
 
 ---
 
+## ⚙️ Requirements
+Shuru karne se pehle aapke system me yeh installed/setup hona chahiye:
+- [Git](https://git-scm.com/downloads)  
+- [Visual Studio Code (VS Code)](https://code.visualstudio.com/download)  
+- [GitHub Account](https://github.com/join)  
+
+---
+
 ## Steps
 
 1. GitHub par ek **naya repository** banao.  
