@@ -12,6 +12,11 @@ Is repository me course ke dauran likha gaya **sara class code** upload hoga.
 
 ---
 
+## 🎥 Class Recordings
+- [See Full Class Recordings](youtube.com/playlist?list=PL1b95zvieU4B3Gs6eXo9yZejwfB4d7CM-&pbjreload=102)
+
+---
+
 ## 📖 Books
 - [HTML & CSS by Jon Duckett](https://github.com/ghousahmed/Books/blob/master/Wiley.HTML.and.CSS.Oct.2011.pdf)
 
