@@ -1,0 +1,49 @@
+*{
+    color: brown;
+}
+
+h1, b, u{
+    background-color: aqua;
+    color: orange;
+}
+
+.sufiyan{
+    color: darkgreen;
+}
+
+.nawab{
+    background-color: black;
+    color: yellow;
+}
+
+h1.nawab{
+    background-color: blueviolet;
+}
+
+#talha{
+    background-color: chocolate;
+}
+
+p#talha, h3#talha{
+    color: black;
+}
+
+h3#talha{
+    background-color: pink;
+}
+
+.my-container{
+    background-color: lime;
+}
+
+.my-container *{
+    color: red;
+}
+
+.my-container>p{
+color: khaki;
+}
+
+.my-container p{
+    background-color: cadetblue;
+}
