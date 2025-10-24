@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    font-size: 12px;
+}
+
+#head1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#head2{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#head3{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#head4{
+    font-family: "Jost", sans-serif;
+}
+
+@font-face {
+    font-family: 'Bangers';
+    src: url('fonts/Bangers-Regular.ttf');
+}
+
+#head5{
+    font-family: "Bangers", sans-serif;
+}
+
+#head6{
+    font-family: "Bitcount Grid Single", system-ui;
+}
+
+@font-face {
+    font-family: 'Bilawal';
+    src: url('fonts/Redressed-Regular.ttf');
+}
+
+#head7{
+    font-family: "Bilawal", sans-serif;
+}
