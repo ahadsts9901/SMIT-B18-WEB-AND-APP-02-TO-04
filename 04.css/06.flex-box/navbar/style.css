@@ -36,3 +36,32 @@ a:hover{
     background-color: rgb(209, 137, 4);
     color: black;
 }
+
+button, .mob-nav{
+    display: none;
+}
+
+/* media query starts here */
+
+
+/* max-width ===> zyada sy zyada width 430 hona lazmi hai (431) */
+/* min-width ===> kam sy kam width 430 hona lazmi hai (429) */
+@media(max-width: 430px){
+    .nav{
+        display: none;
+    }
+    button{
+        display: block;
+    }
+    button:hover + .mob-nav{
+        display: flex;
+        flex-direction: column;
+        background-color: orange;
+        padding: 0.5em 1em;
+        list-style: none;
+        gap: 1em;
+        position: fixed;
+        top: 40px;
+        right: 0;
+    }
+}

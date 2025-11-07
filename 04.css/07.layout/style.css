@@ -6,6 +6,8 @@
 /* relative */
 /* absolute */
 
+/* @import url('absolute-relative/style.css'); */
+
 *{
     margin: 0;
     padding: 0;
@@ -21,6 +23,7 @@
     width: 100%;
     position: sticky;
     top: 0;
+    z-index: -1;
 }
 
 img{
@@ -55,4 +58,8 @@ a:hover{
     position: fixed;
     right: 20px;
     bottom: 20px;
+}
+
+h1{
+    z-index: 1;
 }
