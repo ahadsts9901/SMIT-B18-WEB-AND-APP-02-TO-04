@@ -67,8 +67,27 @@ let my__numbers = [12, 23, 45, 56, 74, 88, 90, 23, 56]
 // console.log("section===> ", section)
 // console.log("numbers===> ", my__numbers)
 
-my__numbers.splice(5, 0, "madni", "bilawal", "web", "saylani")
-console.log(my__numbers)
+// my__numbers.splice(5, 0, "madni", "bilawal", "web", "saylani")
+// console.log(my__numbers)
 
+// const num1 = [1, 2, 3]
+// console.log("num1==> ", num1)
 
+// const num2 = num1
+// console.log("num2==> ", num2)
 
+const city1 = "Islamabad"
+const city2 = "Islamabad"
+
+console.log(city1 == city2)
+
+const arr1 = [1, 2, 3] // different address ===> 145
+const arr2 = [1, 2, 3] // different address ===> 180
+
+console.log(arr1 == arr2)
+
+const two_d_arr = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]
