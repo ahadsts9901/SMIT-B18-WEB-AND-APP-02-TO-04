@@ -10,7 +10,7 @@ let cityFound = false
 // islamabad
 
 for (let i = 0; i < cleanest_cities.length; i++) {
-    if (cleanest_cities[i] === userCity) {
+    if (cleanest_cities[i].toLowerCase() === userCity.toLowerCase()) {
         cityFound = true
         break
     }
