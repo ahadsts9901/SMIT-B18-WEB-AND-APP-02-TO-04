@@ -19,4 +19,4 @@ let my_user = {
     }
 }
 
-console.log(my_user.fatherDetails)
+console.log(my_user.fatherDetails.name)
