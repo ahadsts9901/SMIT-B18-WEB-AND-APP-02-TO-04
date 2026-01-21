@@ -91,5 +91,3 @@ function create_todo(event) {
 }
 
 get_todos()
-
-// CRUD

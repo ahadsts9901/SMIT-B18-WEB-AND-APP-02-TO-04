@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onmousemove="handle_mouse_move(event)">
+
+    <h1>Events</h1>
+
+    <button onclick="alert('hello world')">Click me</button>
+
+    <br />
+    <br />
+    <br />
+
+    <form onsubmit="submit_form(event)">
+        <input type="text" id="input" onchange="change_input(event)" oninput="input_text_change(event)">
+        <button type="submit">Submit</button>
+    </form>
+
+    <br />
+    <br />
+
+    <!-- star image -->
+    <img src="https://www.metro-online.pk/_next/image?url=https%3A%2F%2Fmetro-b2c.s3.amazonaws.com%2FProducts%2F1713782624009.jpg&w=3840&q=75" class="thirsty-image"
+        style="width: 50px; height: 50px;">
+
+    <img src="https://www.shutterstock.com/image-photo/soiled-dirty-muddy-white-t-600nw-2510520901.jpg" onmouseout="handle_image_out(event)"
+        onmouseover="handle_mouse_over(event)" style="border: 1px solid black; width: 300px; height: 300px;" />
+
+    <script src="main.mjs"></script>
+</body>
+
+</html>
