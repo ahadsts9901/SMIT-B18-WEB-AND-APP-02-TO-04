@@ -1,11 +1,12 @@
-function handle_theme_change(theme_class, nextButtonClass) {
+function handle_theme_change(theme_class, nextBtnClass) {
     document.querySelector('body').className = theme_class
 
-    // const all_buttons = document.querySelectorAll('button')
-    // for (let i = 0; i < all_buttons.length; i++) {
-    //     all_buttons[i].style.display = 'none'
-    // }
+    let all_btns = document.querySelectorAll('.my-btns')
 
-    // document.querySelector(`.${nextButtonClass}`).style.display = 'block'
+    for (let i = 0; i < all_btns.length; i++) {
+        all_btns[i].style.display = "none"
+    }
+
+    document.querySelector(`.${nextBtnClass}`).style.display = "block"
 
 }
