@@ -25,6 +25,16 @@ document.querySelector("form").addEventListener('submit', (e) => {
         return
     }
 
-    console.log("signup form submitted")
+    // get all users
+    let all_users_string = localStorage.getItem("users")
+    let all_users = JSON.parse(all_users_string) || []
+
+    
+
+    let newUser = {
+        email: email.toLoweCase(),
+        password: password
+    }
+
 
 })
