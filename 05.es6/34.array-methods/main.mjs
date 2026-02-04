@@ -67,50 +67,50 @@
 // console.log(user_data)
 
 
-// let users = [
-//     {
-//         name: "Mansoor",
-//         age: 22,
-//         favSubject: "computer",
-//         email: "mansoor@gmail.com"
-//     },
-//     {
-//         name: "Ahmad Raza",
-//         age: 22,
-//         favSubject: "chemistry",
-//         email: "ahmad@gmail.com"
-//     },
-//     {
-//         name: "Sufiyan",
-//         age: 18,
-//         favSubject: "Sindhi",
-//         email: "sufiyan@gmail.com"
-//     },
-//     {
-//         name: "Talha",
-//         age: 19,
-//         favSubject: "Pakistan Studies",
-//         email: "sufiyan@gmail.com"
-//     },
-//     {
-//         name: "Bilawal",
-//         age: 19,
-//         favSubject: "Urdu",
-//         email: "bilawal@gmail.com"
-//     },
-//     {
-//         name: "Faris",
-//         age: 18,
-//         favSubject: "Islamiat",
-//         email: "faris@gmail.com"
-//     },
-//     {
-//         name: "Madni",
-//         age: 22,
-//         favSubject: "Math",
-//         email: "madni@gmail.com"
-//     }
-// ]
+let users = [
+    {
+        name: "Mansoor",
+        age: 22,
+        favSubject: "computer",
+        email: "mansoor@gmail.com"
+    },
+    {
+        name: "Ahmad Raza",
+        age: 22,
+        favSubject: "chemistry",
+        email: "ahmad@gmail.com"
+    },
+    {
+        name: "Sufiyan",
+        age: 18,
+        favSubject: "Sindhi",
+        email: "sufiyan@gmail.com"
+    },
+    {
+        name: "Talha",
+        age: 19,
+        favSubject: "Pakistan Studies",
+        email: "sufiyan@gmail.com"
+    },
+    {
+        name: "Bilawal",
+        age: 19,
+        favSubject: "Urdu",
+        email: "bilawal@gmail.com"
+    },
+    {
+        name: "Faris",
+        age: 18,
+        favSubject: "Islamiat",
+        email: "faris@gmail.com"
+    },
+    {
+        name: "Madni",
+        age: 22,
+        favSubject: "Math",
+        email: "madni@gmail.com"
+    }
+]
 
 // array.forEach()
 // users.forEach(function (user) {
@@ -156,50 +156,50 @@
 // ]
 
 
-let users = [
-    {
-        name: "Mansoor",
-        age: 22,
-        favSubject: "computer",
-        email: "mansoor@gmail.com"
-    },
-    {
-        name: "Ahmad Raza",
-        age: 22,
-        favSubject: "chemistry",
-        email: "ahmad@gmail.com"
-    },
-    {
-        name: "Sufiyan",
-        age: 15,
-        favSubject: "Sindhi",
-        email: "sufiyan@gmail.com"
-    },
-    {
-        name: "Talha",
-        age: 19,
-        favSubject: "Pakistan Studies",
-        email: "sufiyan@gmail.com"
-    },
-    {
-        name: "Bilawal",
-        age: 19,
-        favSubject: "Urdu",
-        email: "bilawal@gmail.com"
-    },
-    {
-        name: "Faris",
-        age: 18,
-        favSubject: "Islamiat",
-        email: "faris@gmail.com"
-    },
-    {
-        name: "Madni",
-        age: 22,
-        favSubject: "Math",
-        email: "madni@gmail.com"
-    }
-]
+// let users = [
+//     {
+//         name: "Mansoor",
+//         age: 22,
+//         favSubject: "computer",
+//         email: "mansoor@gmail.com"
+//     },
+//     {
+//         name: "Ahmad Raza",
+//         age: 22,
+//         favSubject: "chemistry",
+//         email: "ahmad@gmail.com"
+//     },
+//     {
+//         name: "Sufiyan",
+//         age: 15,
+//         favSubject: "Sindhi",
+//         email: "sufiyan@gmail.com"
+//     },
+//     {
+//         name: "Talha",
+//         age: 19,
+//         favSubject: "Pakistan Studies",
+//         email: "sufiyan@gmail.com"
+//     },
+//     {
+//         name: "Bilawal",
+//         age: 19,
+//         favSubject: "Urdu",
+//         email: "bilawal@gmail.com"
+//     },
+//     {
+//         name: "Faris",
+//         age: 18,
+//         favSubject: "Islamiat",
+//         email: "faris@gmail.com"
+//     },
+//     {
+//         name: "Madni",
+//         age: 22,
+//         favSubject: "Math",
+//         email: "madni@gmail.com"
+//     }
+// ]
 
 // array.some()
 // let does_user_exist_above_19 = users.some((user)=>{
