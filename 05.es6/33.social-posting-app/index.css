@@ -63,17 +63,18 @@ button{
     color: white;
 }
 
-input{
+input, textarea{
     width: 100%;
     border: 1px solid #0099ff;
     border-radius: 8px;
     padding: 4px 8px;
+    resize: none;
 }
 
-input:focus{
+input:focus, textarea:focus{
     box-shadow: 0px 0px 2px #0099ff;
 }
 
-input::placeholder{
+input::placeholder, textarea::placeholder{
     color: #a6a6a6;
 }
