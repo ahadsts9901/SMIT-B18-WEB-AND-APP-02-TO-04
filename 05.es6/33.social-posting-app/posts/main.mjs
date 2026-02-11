@@ -3,7 +3,7 @@ let currentUser_string = localStorage.getItem("currentUser")
 let currentUser = JSON.parse(currentUser_string)
 if (!currentUser) {
     window.location.href = "../login/index.html"
-}else{
+} else {
     document.querySelector(".user-email").innerText = currentUser.email
 }
 
@@ -33,6 +33,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
             description: description,
             time: new Date().getTime(),
             createdBy: currentUser.email,
+            likes: [],
         }
 
         all_posts.unshift(new_post)
@@ -46,7 +47,31 @@ document.querySelector('form').addEventListener('submit', (e) => {
 })
 
 function like_post(postIndex) {
-    console.log("like_post", postIndex)
+    let all_posts_string = localStorage.getItem("posts")
+    let all_posts = JSON.parse(all_posts_string) || []
+
+    let currentPost = all_posts[postIndex]
+
+    const useremail = currentPost.likes.find((email) => {
+        return currentUser.email === email
+    })
+
+    if (useremail) {
+        let updatedLikes = currentPost.likes.filter((email) => {
+            return email !== currentUser.email
+        })
+        all_posts[postIndex].likes = updatedLikes
+        localStorage.setItem("posts", JSON.stringify(all_posts))
+
+
+    } else {
+        currentPost.likes.unshift(currentUser.email)
+        all_posts[postIndex] = currentPost
+        localStorage.setItem("posts", JSON.stringify(all_posts))
+    }
+
+    render_posts()
+
 }
 
 function edit_post(postIndex) {
@@ -82,6 +107,10 @@ function render_posts() {
     output.innerHTML = ""
 
     all_posts.forEach((post, index) => {
+        const useremail = post.likes.find((email) => {
+            return currentUser.email === email
+        })
+
         output.innerHTML += `
         <div class="single-post">
                 <h2>${post.title}</h2>
@@ -90,14 +119,14 @@ function render_posts() {
                 <h3>${moment(post.time).fromNow()}</h3>
                 <div class="post-btns">
                     ${post.createdBy === currentUser.email ?
-                        `<button onclick="like_post('${index}')"> <i class="bi bi-hand-thumbs-up"></i> Like</button>
+                `<button class="${useremail ? "liked-post" : "unliked-post"}" onclick="like_post('${index}')"> <i class="bi bi-hand-thumbs-up"></i> Like (${post.likes.length})</button>
                         <button onclick="edit_post('${index}')"> <i class="bi bi-pencil"></i> Edit</button>
                         <button onclick="delete_post('${index}')"> <i class="bi bi-trash3"></i> Delete</button>`
-                        :
+                :
+                `
+                        <button class="${useremail ? "liked-post" : "unliked-post"}" onclick="like_post('${index}')"> <i class="bi bi-hand-thumbs-up"></i> Like (${post.likes.length})</button>
                         `
-                        <button onclick="like_post('${index}')"> <i class="bi bi-hand-thumbs-up"></i> Like</button>
-                        `
-                    }
+            }
                 </div>
         </div>
         `

@@ -49,6 +49,7 @@ textarea {
     background-color: transparent;
     color: #0099ff;
     border: 1px solid #0099ff;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 h2,
@@ -64,4 +65,10 @@ h3 {
     color: #5e5e5e;
     text-align: right;
     text-transform: capitalize;
+}
+
+button.liked-post{
+    background-color: #0099ff;
+    color: white;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
