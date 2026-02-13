@@ -17,5 +17,6 @@ document.body.addEventListener('mousemove', (e) => {
     console.log(e.clientY)
 })
 
-
-
+document.querySelector(".my-btn").addEventListener("click", () => {
+    console.log("button is clicked")
+})
