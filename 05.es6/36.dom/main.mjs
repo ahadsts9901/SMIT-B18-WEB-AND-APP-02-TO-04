@@ -26,3 +26,17 @@ const myDiv = document.querySelector(".my-div")
 
 console.log(myDiv.childNodes.length)
 
+
+// document.querySelector("a").href = "https://google.com";
+document.querySelector("a").setAttribute("href", "https://google.com")
+
+document.querySelector(".btn").addEventListener('click', () => {
+    // document.querySelector("img").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR2esfqEtwmeqjD02ZGu2aaiH4GgVdlc25OA&s"
+    document.querySelector("img").setAttribute("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR2esfqEtwmeqjD02ZGu2aaiH4GgVdlc25OA&s")
+    console.log(document.querySelector("img").getAttribute("src"))
+})
+
+console.log(document.querySelector("img").getAttribute("src"))
+
+
+
