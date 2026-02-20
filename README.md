@@ -13,7 +13,7 @@ Is repository me course ke dauran likha gaya **sara class code** upload hoga.
 ---
 
 ## 🎥 Class Recordings
-- [See Full Class Recordings](youtube.com/playlist?list=PL1b95zvieU4B3Gs6eXo9yZejwfB4d7CM-&pbjreload=102)
+- [See Full Class Recordings](https://youtube.com/playlist?list=PL1b95zvieU4B3Gs6eXo9yZejwfB4d7CM-&pbjreload=102)
 
 ---
 
@@ -24,3 +24,4 @@ Is repository me course ke dauran likha gaya **sara class code** upload hoga.
 
 ## 📂 Course Outline
 - [See Course Outline](https://github.com/ghousahmed/modern-web-and-app-development/blob/main/README.md)
+
