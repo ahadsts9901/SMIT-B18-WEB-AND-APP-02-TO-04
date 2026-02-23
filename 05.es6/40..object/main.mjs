@@ -26,14 +26,14 @@
 // }
 
 // OLD_VERSION ES5
-function User(name, age, fav_subject) {
-    this.username = name
-    this.age = age
-    this.fav_subject = fav_subject
-}
+// function User(name, age, fav_subject) {
+//     this.username = name
+//     this.age = age
+//     this.fav_subject = fav_subject
+// }
 
-let user1 = new User("ahmed raza", 22, "chemistry")
-let user2 = new User("faris", 19, "sindhi")
+// let user1 = new User("ahmed raza", 22, "chemistry")
+// let user2 = new User("faris", 19, "sindhi")
 
 // console.log(user1)
 // console.log(user2)
@@ -70,7 +70,7 @@ let honda_70 = new Vehicle("honda 70", 100000, "2024")
 let honda_125 = new Vehicle("honda 125", 250000, "2022")
 let honda_150 = new Vehicle("honda 150", 400000, "2020")
 
-honda_150.greet()
+// honda_150.greet()
 
 // console.log(honda_70)
 // console.log(honda_125)
@@ -90,3 +90,21 @@ honda_150.greet()
 // }
 
 // userObj.greet_user()
+
+// function User(name, favSubject) {
+//     this.username = name
+//     this.fav__subject = favSubject
+// }
+
+// class User {
+//     constructor(name, favSubject) {
+//         this.username = name
+//         this.fav__subject = favSubject
+//     }
+// }
+
+// let user_1 = new User("jahangir", "english")
+// let user_2 = new User("alamgir", "arabic")
+
+// console.log(user_1)
+// console.log(user_2)
