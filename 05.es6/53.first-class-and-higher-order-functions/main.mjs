@@ -1,45 +1,51 @@
-// const myFun = () => {
-//     // console.log("myFun running")
-//     return () => {
-//         alert("hello world 12345")
-//     }
-// }
+// first-class-and-higher-order-functions
 
-// const new_function = myFun()
+// first class function
 
-// new_function()
+// - function koi parameter lerha ho
+// - function koi value return krrha ho
+// - function kisi variable main ho
 
-
-
-
-// practical
-// Different discount functions
-
-function noDiscount(price) {
-    return price;
+function greet() {
+    alert("hello user")
 }
 
-function tenPercentDiscount(price) {
-    return price * 0.9;
+const add = (a, b) => {
+    return a + b
 }
 
-function fiftyOff(price) {
-    return price - 50;
+// greet()
+// add(3,4)
+// console.log(add(3, 4))
+
+const greetUser = (username) => {
+    alert(`hello ${username}`)
 }
 
-// Higher-order function (takes function as argument)
-function calculateFinalPrice(price, discountFunction) {
-    return discountFunction(price);
+const hello = () => {
+    return "hello world"
 }
 
+// higher order function
 
-// Using first-class functions
-let price1 = calculateFinalPrice(500, noDiscount);
-let price2 = calculateFinalPrice(500, tenPercentDiscount);
-let price3 = calculateFinalPrice(500, fiftyOff);
+// - wo function jo kisi aur function ko return kray 
+// - wo function jo kisi function ko as a parameter accept kray
 
-console.log("No Discount:", price1);
-console.log("10% Discount:", price2);
-console.log("50 OFF:", price3);
+const myFun = () => {
+    return () => {
+        alert("hello world")
+    }
+}
 
+const newFun = myFun()
+// newFun()
 
+const getWeather = () => {
+    return 35
+}
+
+const getMessage = (fun) => {
+    console.log(fun())
+}
+
+getMessage(getWeather)

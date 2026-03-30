@@ -1,7 +1,7 @@
 async function get_weather(event) {
     event.preventDefault()
     const cityName = document.querySelector("#cityName").value
-    const api_key = "26ae9a0b27a97215beaa4b5df9aa15fb"
+    const api_key = "a3f338eb00c448a728f0699e0d07c6a1"
 
     const response = await axios.get(
         `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${api_key}&unit=metrics`
