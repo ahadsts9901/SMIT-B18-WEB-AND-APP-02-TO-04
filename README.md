@@ -19,6 +19,8 @@ Is repository me course ke dauran likha gaya **sara class code** upload hoga.
 
 ## 📖 Books
 - [HTML & CSS by Jon Duckett](https://github.com/ghousahmed/Books/blob/master/Wiley.HTML.and.CSS.Oct.2011.pdf)
+- [A Smarter Way To Learn Javascript](https://github.com/ghousahmed/Books/blob/master/ASmarterWaytoLearnJavaScript.pdf)
+- [Ecmascript 6](https://github.com/ghousahmed/Books/blob/master/ECMAScript6.pdf)
 
 ---
 
