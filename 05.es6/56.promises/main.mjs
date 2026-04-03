@@ -42,3 +42,4 @@ const get__data = async () => {
 }
 
 get__data()
+
