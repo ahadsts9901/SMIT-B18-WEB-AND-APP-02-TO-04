@@ -2,13 +2,16 @@
 // synchronous javascript  ===> execute immidiately
 
 const getUserData = async (userId) => {
-    try {
-        const resp = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`)
-        return resp.data
+    return new Promise(async (resolve, reject) => {
+        try {
+            const resp = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`)
+            resolve(resp.data)
 
-    } catch (error) {
-        console.error(error)
-    }
+        } catch (error) {
+            console.error(error)
+            reject(error)
+        }
+    })
 }
 
 const get__data = async () => {
