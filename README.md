@@ -26,4 +26,3 @@ Is repository me course ke dauran likha gaya **sara class code** upload hoga.
 
 ## 📂 Course Outline
 - [See Course Outline](https://github.com/ghousahmed/modern-web-and-app-development/blob/main/README.md)
-
