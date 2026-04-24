@@ -1,0 +1,37 @@
+// variables
+// inheritance
+// calculation
+
+// mixins
+// functions
+
+$blue: #ff4400;
+$buttonBg: #0d6913;
+$boderRadius: 12px;
+
+body {
+    background-color: $blue;
+}
+
+h1 {
+    color: $blue;
+    background-color: $buttonBg;
+    font-family: sans-serif;
+    border-radius: $boderRadius;
+    display: inline-block;
+    width: calc(100vw - 400px);
+}
+
+.my-container {
+    background-color: orange;
+    padding: 2em;
+
+    h1 {
+        background-color: yellow;
+    }
+
+    p {
+        background-color: pink;
+    }
+
+}

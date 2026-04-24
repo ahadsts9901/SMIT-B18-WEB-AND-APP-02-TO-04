@@ -1,0 +1,23 @@
+body {
+  background-color: #ff4400;
+}
+
+h1 {
+  color: #ff4400;
+  background-color: #0d6913;
+  font-family: sans-serif;
+  border-radius: 12px;
+  display: inline-block;
+  width: calc(100vw - 400px);
+}
+
+.my-container {
+  background-color: orange;
+  padding: 2em;
+}
+.my-container h1 {
+  background-color: yellow;
+}
+.my-container p {
+  background-color: pink;
+}/*# sourceMappingURL=style.css.map */
