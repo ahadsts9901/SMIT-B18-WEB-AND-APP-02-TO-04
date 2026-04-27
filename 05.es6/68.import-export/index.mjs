@@ -11,6 +11,7 @@ import {
 } from "./other-functions.mjs"
 
 import addFun from "./other-functions.mjs"
+import addMyFun from "./functions.mjs"
 
 console.log("hello nodejs")
 console.log(1 + 5)
