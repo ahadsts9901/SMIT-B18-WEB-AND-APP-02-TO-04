@@ -1,11 +1,9 @@
 // variables
 // inheritance
 // calculation
+// mixins/functions
 
-// mixins
-// functions
-
-$blue: #ff4400;
+$blue: #1c97d9;
 $buttonBg: #0d6913;
 $boderRadius: 12px;
 
@@ -34,4 +32,20 @@ h1 {
         background-color: pink;
     }
 
+}
+
+@mixin basicInput($bgColor, $color, $padding) {
+    border-radius: 1em;
+    background-color: $bgColor;
+    color: $color;
+    border: 2px solid skyblue;
+    padding: $padding;
+}
+
+input {
+    @include basicInput(#fff, black, 0.5em);
+}
+
+button {
+    @include basicInput(#096e09, white, 1em);
 }
