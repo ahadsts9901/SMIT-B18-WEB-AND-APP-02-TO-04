@@ -1,20 +1,19 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, orderBy, doc, deleteDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
 
-// const firebaseConfig = {
-//     apiKey: "AIzaSyDU0CQ8vxduQlr1qZOH1dWjp3XfYE0IJuc",
-//     authDomain: "smit-b18.firebaseapp.com",
-//     projectId: "smit-b18",
-//     storageBucket: "smit-b18.firebasestorage.app",
-//     messagingSenderId: "243844172855",
-//     appId: "1:243844172855:web:49192254a79ffc193ec3b2",
-//     measurementId: "G-JCL8ZL1GN2"
-// };
+const firebaseConfig = {
+    apiKey: "AIzaSyDU0CQ8vxduQlr1qZOH1dWjp3XfYE0IJuc",
+    authDomain: "smit-b18.firebaseapp.com",
+    projectId: "smit-b18",
+    storageBucket: "smit-b18.firebasestorage.app",
+    messagingSenderId: "243844172855",
+    appId: "1:243844172855:web:49192254a79ffc193ec3b2",
+    measurementId: "G-JCL8ZL1GN2"
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
 
 // create
 const create_post = async (e) => {
@@ -24,7 +23,7 @@ const create_post = async (e) => {
 
     try {
 
-        const docRef = await addDoc(collection(db, "posts"), {
+        const docRef = await addDoc(collection(db, "submissions"), {
             title: title,
             description: description,
             cretedOn: new Date().getTime()
@@ -43,7 +42,7 @@ document.querySelector("form").addEventListener('submit', create_post)
 // delete
 const delete_post = async (id) => {
     try {
-        await deleteDoc(doc(db, "posts", id));
+        await deleteDoc(doc(db, "submissions", id));
         get_data()
         // window.location.reload()
 
@@ -58,7 +57,7 @@ const edit_post = async (id) => {
     let description = prompt("Enter your description")
 
     try {
-        await setDoc(doc(db, "posts", id), {
+        await setDoc(doc(db, "submissions", id), {
             title: title,
             description: description
         });
@@ -78,9 +77,10 @@ const get_data = async () => {
     result.innerHTML = ""
 
     try {
-        const querySnapshot = await getDocs(collection(db, "posts"));
+        const querySnapshot = await getDocs(collection(db, "submissions"));
         querySnapshot.forEach((doc) => {
             const singlePost = doc.data()
+            console.log(singlePost)
 
             const postCard = document.createElement("div")
             postCard.className = "post"
