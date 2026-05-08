@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, GithubAuthProvider } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAo5PnAN7HiQWMT8xmvHpRJ3tITQHXe2xQ",
@@ -56,3 +56,23 @@ document.querySelector(".google-btn").addEventListener('click', () => {
         });
 
 })
+
+document.querySelector(".github-btn").addEventListener('click', () => {
+    const auth = getAuth();
+    const provider = new GithubAuthProvider();
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const credential = GithubAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+            console.log(user)
+        }).catch((error) => {
+            console.error(error);
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData.email;
+            const credential = GithubAuthProvider.credentialFromError(error);
+        });
+
+})
+
