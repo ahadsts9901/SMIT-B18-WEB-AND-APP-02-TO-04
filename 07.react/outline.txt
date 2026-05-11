@@ -1,0 +1,23 @@
+app creation
+app running
+folder structure
+picture/video
+package installation
+deployment (surge, vercel)
+scss
+tailwind
+fonts
+icons
+hooks
+virtual DOM
+components
+props
+firebase/supabase
+env variables
+api call
+routing
+redux
+UI libraries
+optimization hooks
+protected routes
+typescript
