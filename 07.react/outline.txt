@@ -1,17 +1,17 @@
-app creation
-app running
-folder structure
-picture/video
-package installation
-deployment (surge, vercel)
-scss
-tailwind
-fonts
-icons
+app creation                DONE
+app running                 DONE
+folder structure            DONE
+picture/video               DONE
+deployment (surge, vercel)  DONE
+package installation        DONE
+scss                        DONE
+fonts                       DONE
+icons                       DONE
+components                  DONE
+props                       DONE
+
 hooks
 virtual DOM
-components
-props
 firebase/supabase
 env variables
 api call
@@ -20,4 +20,5 @@ redux
 UI libraries
 optimization hooks
 protected routes
+tailwind
 typescript
