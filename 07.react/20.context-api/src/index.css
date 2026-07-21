@@ -1,0 +1,18 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.light{
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    color: black;
+}
+
+.dark{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}

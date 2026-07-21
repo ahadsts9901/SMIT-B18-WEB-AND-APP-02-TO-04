@@ -1,0 +1,15 @@
+.cruise-card{
+    /* width: 100%; */
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+/* .cruise-card img{
+    width: 300px;
+} */
+
+p{
+    margin: 0;
+}
