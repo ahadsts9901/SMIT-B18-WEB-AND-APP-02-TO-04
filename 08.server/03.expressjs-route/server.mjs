@@ -1,5 +1,6 @@
 import express from 'express';
 import { v1Routes, v2Routes } from "./routes/index.mjs"
+// import moment from 'moment';
 
 const app = express()
 const port = process.env.PORT || 5002
@@ -26,6 +27,11 @@ app.get('/contact', (req, res, next) => {
         languages: ['html', 'css', 'react'],
         isMale: true,
     })
+})
+
+app.get("/time", (req, res, next) => {
+    // res.send(moment().format(""))
+    res.send("hello world time")
 })
 
 // wrong
