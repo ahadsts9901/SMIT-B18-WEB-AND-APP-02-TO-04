@@ -3,6 +3,7 @@
     req.params
     req.query
     req.headers
+    formdata
 
 2. ways of output
     JSON
