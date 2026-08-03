@@ -1,0 +1,10 @@
+1. ways of input
+    req.body
+    req.params
+    req.query
+    req.headers
+    formdata
+
+2. ways of output
+    JSON
+    HTML
