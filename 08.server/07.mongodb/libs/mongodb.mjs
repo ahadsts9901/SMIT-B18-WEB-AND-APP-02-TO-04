@@ -16,7 +16,7 @@ export const connect_database = async () => {
 
     try {
         await mongoose.connect(uri, {
-            dbName: "smit-b18"
+            dbName: "mongodb-crud"
         })
         console.log("mongoose is connected")
     } catch (error) {
