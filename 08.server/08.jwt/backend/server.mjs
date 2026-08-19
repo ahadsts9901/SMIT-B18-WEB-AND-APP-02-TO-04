@@ -16,7 +16,7 @@ app.use(cors({
     methods: "*"
 }))
 
-const PORT = process.env.PORT || 5002
+const PORT = process.env.PORT || 3001
 
 app.get("/", (req, res) => {
     res.send("hello world server")
