@@ -1,8 +1,9 @@
 import "dotenv/config"
 import express from "express"
-import { authRoutes, postRoutes } from "./routes/index.mjs"
+import { authRoutes, postRoutes, profileRoutes } from "./routes/index.mjs"
 import cors from "cors"
 import { connect_database } from "./libs/mongodb.mjs"
+import { authGuardJWT } from "./middlewares/jwt/index.mjs"
 
 const app = express()
 
@@ -22,8 +23,10 @@ app.get("/", (req, res) => {
     res.send("hello world server")
 })
 
-app.use("/api/v1", postRoutes)
 app.use("/api/v1", authRoutes)
+app.use("/api/v1", postRoutes)
+app.use("/api/v1", profileRoutes)
+app.use("/api/v1", authGuardJWT)
 
 app.listen(PORT, () => {
     console.log("server is running...")
