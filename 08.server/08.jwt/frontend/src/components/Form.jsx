@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import axios from "axios"
+import { baseUrl } from '../core'
 
 const Form = ({getAllPosts}) => {
     const titleRef = useRef(null)
@@ -19,7 +20,7 @@ const Form = ({getAllPosts}) => {
         }
 
         try {
-            const resp = await axios.post("http://localhost:3001/api/v1/post", {
+            const resp = await axios.post(`${baseUrl}/api/v1/post`, {
                 title: titleRef.current.value,
                 description: descRef.current.value
             })

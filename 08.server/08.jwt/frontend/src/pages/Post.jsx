@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Form from '../components/Form'
 import axios from 'axios'
 import moment from "moment"
+import { baseUrl } from '../core'
 
 const Posts = () => {
   const [posts, set_posts] = useState([])
@@ -12,7 +13,7 @@ const Posts = () => {
 
   const getAllPosts = async () => {
     try {
-      const resp = await axios.get("http://localhost:3001/api/v1/post")
+      const resp = await axios.get(`${baseUrl}/api/v1/post`)
       set_posts(resp.data.data)
 
     } catch (error) {
@@ -26,7 +27,7 @@ const Posts = () => {
       return
     }
     try {
-      const resp = await axios.delete(`http://localhost:3001/api/v1/post/${postId}`)
+      const resp = await axios.delete(`${baseUrl}/api/v1/post/${postId}`)
       alert("post deleted")
       getAllPosts()
 
@@ -46,7 +47,7 @@ const Posts = () => {
     const updatedDesc = prompt("Enter updated description", description)
 
     try {
-      const resp = await axios.put(`http://localhost:3001/api/v1/post/${postId}`, {
+      const resp = await axios.put(`${baseUrl}/api/v1/post/${postId}`, {
         title: updatedTitle,
         description: updatedDesc
       })

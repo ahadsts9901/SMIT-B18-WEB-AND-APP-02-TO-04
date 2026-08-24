@@ -12,7 +12,7 @@ app.use(express.json())
 
 // cors middleware
 app.use(cors({
-    origin: ["http://localhost:5173", "https://your-frontend.vercel.app"],
+    origin: ["http://localhost:5173", "https://smit-b18-web-and-app-02-to-04-ld6e.vercel.app"],
     // methods: ["GET", "POST"]
     methods: "*"
 }))
