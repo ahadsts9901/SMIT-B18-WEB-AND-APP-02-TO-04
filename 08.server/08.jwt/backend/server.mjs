@@ -7,10 +7,10 @@ import { authGuardJWT } from "./middlewares/jwt/index.mjs"
 
 const app = express()
 
-// body parser
+// body parser middleware
 app.use(express.json())
 
-// cors
+// cors middleware
 app.use(cors({
     origin: ["http://localhost:5173", "https://your-frontend.vercel.app"],
     // methods: ["GET", "POST"]
@@ -24,9 +24,9 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/v1", authRoutes)
+app.use("/api/v1", authGuardJWT)
 app.use("/api/v1", postRoutes)
 app.use("/api/v1", profileRoutes)
-app.use("/api/v1", authGuardJWT)
 
 app.listen(PORT, () => {
     console.log("server is running...")

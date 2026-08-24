@@ -37,7 +37,6 @@ router.post("/post", async (req, res, next) => {
 
 router.get("/post", async (req, res, next) => {
     try {
-        
         console.log("currentUser from post api=> ", req.currentUser)
         const allPosts = await PostModel.find()
 

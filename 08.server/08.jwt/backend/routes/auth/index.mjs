@@ -1,6 +1,5 @@
 import express from "express"
 import { UserModel } from "../../models/index.mjs"
-import { isValidObjectId } from "mongoose"
 import { emailPattern } from "../../utils/core.mjs"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
@@ -122,7 +121,7 @@ router.post("/login", async (req, res, next) => {
                 _id: userAccount._id
             },
             process.env.JWT_KEY,
-            { expiresIn: '15d' }
+            { expiresIn: '15m' }
         )
 
         return res.send({

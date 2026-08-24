@@ -21,6 +21,7 @@ const Login = () => {
         password: password,
       })
       alert("Login Done")
+      localStorage.setItem("token", resp.data.data)
       // navigate("/login")
 
     } catch (error) {
