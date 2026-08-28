@@ -3,6 +3,7 @@ import Form from '../components/Form'
 import axios from 'axios'
 import moment from "moment"
 import { baseUrl } from '../core'
+import Header from '../components/Header'
 
 const Posts = () => {
   const [posts, set_posts] = useState([])
@@ -62,6 +63,7 @@ const Posts = () => {
 
   return (
     <div>
+      <Header />
       <Form getAllPosts={getAllPosts} />
       <div className="result flex justify-start items-start gap-2 p-2 flex-wrap">
         {posts.length ? posts.map((singlePost, index) => {

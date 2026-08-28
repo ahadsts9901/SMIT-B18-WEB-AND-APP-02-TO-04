@@ -9,6 +9,7 @@ import axios from "axios"
 import { baseUrl } from "./core"
 import { store } from './store/states'
 import SplahScreen from "./pages/SplahScreen"
+import Profile from "./pages/Profile"
 
 const App = () => {
   const { global_login, global_logout, user, isLogin } = store()
@@ -40,6 +41,7 @@ const App = () => {
         isLogin == true ?
           <Routes>
             <Route path='/' element={<Posts />} />
+            <Route path='/profile' element={<Profile />} />
             <Route path='*' element={<Navigate to="/" />} />
           </Routes> :
           null

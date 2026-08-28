@@ -91,6 +91,20 @@ router.put("/password", async (req, res, next) => {
 })
 
 // update profile picture
+router.put("/profile-picture", async (req, res, next) => {
+    try {
+        return res.send({
+            message: "profile picture updated",
+        })
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send({
+            message: "internal server error"
+        })
+    }
+})
+
 // update email
 
 export default router
