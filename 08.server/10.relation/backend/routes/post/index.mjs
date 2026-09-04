@@ -21,6 +21,7 @@ router.post("/post", async (req, res, next) => {
         await PostModel.create({
             title: req.body.title,
             description: req.body.description,
+            userId: req.currentUser._id
         })
 
         return res.send({
@@ -37,7 +38,7 @@ router.post("/post", async (req, res, next) => {
 
 router.get("/post", async (req, res, next) => {
     try {
-        const allPosts = await PostModel.find()
+        const allPosts = await PostModel.find().populate("userId")
 
         return res.send({
             message: "all posts fetched",
@@ -105,6 +106,14 @@ router.delete("/post/:postId", async (req, res, next) => {
             })
         }
 
+        const post = await PostModel.findOne({ _id: postId })
+
+        if (req.currentUser._id !== post.userId) {
+            return res.status(401).send({
+                message: "you cannot delete this post"
+            })
+        }
+
         await PostModel.findByIdAndDelete(postId)
 
         return res.send({
@@ -148,6 +157,14 @@ router.put("/post/:postId", async (req, res, next) => {
         if (!req.body.description) {
             res.status(400).send({
                 message: "description is required"
+            })
+        }
+
+        const post = await PostModel.findOne({ _id: postId })
+
+        if (req.currentUser._id !== post.userId) {
+            return res.status(401).send({
+                message: "you cannot edit this post"
             })
         }
 

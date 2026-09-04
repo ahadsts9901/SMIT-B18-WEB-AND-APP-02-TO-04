@@ -1,7 +1,0 @@
-1. server scalability (theory)
-2. vertical scaling (theory)
-3. horizontal scaling (theory)
-4. cache (theory)
-5. morgan for logs & monitoring (theory + practical)
-6. rate limiting for server_attacks (theory + practical)
-7. ngrok for local_deployment, logs & monitoring (theory + practical)

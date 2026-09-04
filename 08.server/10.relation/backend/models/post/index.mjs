@@ -10,7 +10,11 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-    }
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users"
+    },
 }, { timestamps: true })
 
 export const PostModel = mongoose.model("posts", postSchema)
