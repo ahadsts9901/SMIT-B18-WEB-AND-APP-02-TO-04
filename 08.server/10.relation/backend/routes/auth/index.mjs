@@ -121,7 +121,7 @@ router.post("/login", async (req, res, next) => {
                 _id: userAccount._id
             },
             process.env.JWT_KEY,
-            { expiresIn: '15m' }
+            { expiresIn: '1d' }
         )
 
         return res.send({

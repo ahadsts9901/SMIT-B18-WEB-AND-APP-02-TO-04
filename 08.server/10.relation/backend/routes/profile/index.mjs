@@ -1,10 +1,30 @@
 import express from "express"
-import { UserModel } from "../../models/index.mjs";
+import { PostModel, UserModel } from "../../models/index.mjs";
 import bcrypt from "bcryptjs"
 import { multerMiddleware } from "../../libs/multer.mjs";
 import { uploadOnCloudinary } from "../../libs/cloudinary.mjs";
 
 const router = express.Router()
+
+// get profile
+router.get("/profile/:userId", async (req, res, next) => {
+    try {
+        const userId = req.params.userId || req.currentUser.userId
+
+        const user = await UserModel.findOne({ _id: userId })
+
+        return res.send({
+            message: "profile fetched",
+            data: user
+        })
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send({
+            message: "internal server error"
+        })
+    }
+})
 
 // get profile
 router.get("/profile", async (req, res, next) => {
@@ -126,6 +146,23 @@ router.put("/profile-picture", multerMiddleware.any(), async (req, res, next) =>
         return res.send({
             message: "profile picture updated",
             url: fileResp.secure_url
+        })
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send({
+            message: "internal server error"
+        })
+    }
+})
+
+router.get("/profile/posts/:userId", async (req, res, next) => {
+    try {
+        const allPosts = await PostModel.find({ userId: req.params.userId }).populate("userId")
+
+        return res.send({
+            message: "profile posts fetched",
+            data: allPosts
         })
 
     } catch (error) {

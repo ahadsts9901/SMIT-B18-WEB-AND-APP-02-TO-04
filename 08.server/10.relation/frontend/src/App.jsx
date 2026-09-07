@@ -42,6 +42,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Posts />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/profile/:userId' element={<Profile />} />
             <Route path='*' element={<Navigate to="/" />} />
           </Routes> :
           null
