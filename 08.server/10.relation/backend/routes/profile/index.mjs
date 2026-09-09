@@ -9,7 +9,7 @@ const router = express.Router()
 // get profile
 router.get("/profile/:userId", async (req, res, next) => {
     try {
-        const userId = req.params.userId || req.currentUser.userId
+        const userId = req.params.userId || req.currentUser._id
 
         const user = await UserModel.findOne({ _id: userId })
 

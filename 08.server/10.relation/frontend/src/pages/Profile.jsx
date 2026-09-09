@@ -16,6 +16,8 @@ const Profile = () => {
   const params = useParams()
   const userId = params.userId
   const { user, global_login } = store()
+  
+  const [user_data, set_user_data] = useState(null)
 
   const editProfile = async () => {
     const firstname = prompt("Enter firstname", user.firstname)
@@ -31,6 +33,11 @@ const Profile = () => {
         }
       })
       global_login({
+        ...user,
+        firstname: firstname,
+        lastname: lastname,
+      })
+      set_user_data({
         ...user,
         firstname: firstname,
         lastname: lastname,
@@ -103,6 +110,10 @@ const Profile = () => {
         ...user,
         profilePicture: resp.data.url
       })
+      set_user_data({
+        ...user_data,
+        profilePicture: resp.data.url
+      })
 
     } catch (error) {
       console.error(error);
@@ -117,7 +128,6 @@ const Profile = () => {
     getOtherPosts()
   }, [])
 
-  const [user_data, set_user_data] = useState(null)
   const [posts, set_posts] = useState([])
 
   const getOtherUserProfile = async () => {

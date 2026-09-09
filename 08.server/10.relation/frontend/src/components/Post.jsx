@@ -71,25 +71,27 @@ export const Post = ({ singlePost }) => {
     return (
         <div className='border w-full p-2 flex flex-col gap-2 rounded-lg'>
             <Link className='w-full flex gap-2 items-center cursor-pointer'
-                to={`/profile/${singlePost.userId._id}`}
+                to={`/profile/${singlePost?.userId._id}`}
             >
 
-                <img src={singlePost.userId.profilePicture || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS73K-hNaw6ETaPB2zU7PqIiWDgchEYFoDcaRJLGtHYRg&s=10"} alt="profile-picture"
+                <img src={singlePost?.userId?.profilePicture || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS73K-hNaw6ETaPB2zU7PqIiWDgchEYFoDcaRJLGtHYRg&s=10"} alt="profile-picture"
                     className='w-12 h-12 rounded-full border'
                 />
-                <h3 className='text-xl font-bold text-left'>{singlePost.userId.firstname} {singlePost.userId.lastname}</h3>
+                <h3 className='text-xl font-bold text-left'>{singlePost?.userId?.firstname} {singlePost?.userId?.lastname}</h3>
 
-                <b className='ml-auto'>{moment(singlePost.id).fromNow()}</b>
+                <b className='ml-auto'>{moment(singlePost?.createdAt)?.fromNow()}</b>
 
             </Link>
-            <h2 className='font-bold text-xl'>{singlePost.title}</h2>
-            <p>{singlePost.description}</p>
-            {user._id === singlePost.userId._id ? <div className='flex gap-2'>
+            <Link to={`/post/${singlePost?._id}`}>
+                <h2 className='font-bold text-xl'>{singlePost?.title}</h2>
+                <p>{singlePost?.description}</p>
+            </Link>
+            {user?._id === singlePost?.userId?._id ? <div className='flex gap-2'>
                 <button
-                    onClick={() => edit_post(singlePost._id, singlePost.title, singlePost.description)}
+                    onClick={() => edit_post(singlePost?._id, singlePost?.title, singlePost?.description)}
                     className='cursor-pointer bg-green-800 hover:bg-green-600 transition-colors duration-400 text-xs text-white py-2 px-4 rounded-md'>Edit</button>
                 <button
-                    onClick={() => delete_post(singlePost._id)}
+                    onClick={() => delete_post(singlePost?._id)}
                     className='cursor-pointer bg-red-800 hover:bg-red-600 transition-colors duration-400 text-xs text-white py-2 px-4 rounded-md'>Delete</button>
             </div> : null}
             <div className='w-full grid grid-cols-3 gap-2'>

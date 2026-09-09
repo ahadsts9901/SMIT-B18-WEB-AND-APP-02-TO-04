@@ -1,10 +1,12 @@
 import express from "express"
 import { PostModel } from "../../models/index.mjs"
 import { isValidObjectId } from "mongoose"
+import { multerMiddleware } from "../../libs/multer.mjs";
+import { uploadOnCloudinary } from "../../libs/cloudinary.mjs";
 
 const router = express.Router()
 
-router.post("/post", async (req, res, next) => {
+router.post("/post", multerMiddleware.any(), async (req, res, next) => {
     try {
         if (!req.body.title) {
             return res.status(400).send({
@@ -18,10 +20,19 @@ router.post("/post", async (req, res, next) => {
             })
         }
 
+        const file = req?.files[0]
+        let imageUrl = null
+
+        if (file) {
+            const fileResp = await uploadOnCloudinary(file)
+            imageUrl = fileResp?.secure_url
+        }
+
         await PostModel.create({
             title: req.body.title,
             description: req.body.description,
-            userId: req.currentUser._id
+            userId: req.currentUser._id,
+            imageUrl: imageUrl,
         })
 
         return res.send({
@@ -69,7 +80,7 @@ router.get("/post/:postId", async (req, res, next) => {
             })
         }
 
-        const singlePost = await PostModel.findOne({ _id: req.params.postId })
+        const singlePost = await PostModel.findOne({ _id: req.params.postId }).populate("userId")
 
         if (!singlePost) {
             return res.status(404).send({
