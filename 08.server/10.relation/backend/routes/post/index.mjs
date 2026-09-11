@@ -24,6 +24,18 @@ router.post("/post", multerMiddleware.any(), async (req, res, next) => {
         let imageUrl = null
 
         if (file) {
+            if (!file.mimetype.startsWith("image")) {
+                return res.status(400).send({
+                    message: "only images are allowed"
+                })
+            }
+
+            if (file.size > 1000000) {
+                return res.status(400).send({
+                    message: "file upload limit is 1mb"
+                })
+            }
+
             const fileResp = await uploadOnCloudinary(file)
             imageUrl = fileResp?.secure_url
         }
@@ -49,7 +61,20 @@ router.post("/post", multerMiddleware.any(), async (req, res, next) => {
 
 router.get("/post", async (req, res, next) => {
     try {
-        const allPosts = await PostModel.find().populate("userId")
+        const q = req.query.q ? req.query.q.trim() : ""
+
+        // Build query filter
+        let query = {}
+        if (q) {
+            query = {
+                $or: [
+                    { title: { $regex: q, $options: "i" } },
+                    { description: { $regex: q, $options: "i" } }
+                ]
+            }
+        }
+
+        const allPosts = await PostModel.find(query).populate("userId")
 
         return res.send({
             message: "all posts fetched",

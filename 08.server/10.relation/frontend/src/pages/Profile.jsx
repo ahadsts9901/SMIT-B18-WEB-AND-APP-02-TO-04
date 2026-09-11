@@ -16,7 +16,7 @@ const Profile = () => {
   const params = useParams()
   const userId = params.userId
   const { user, global_login } = store()
-  
+
   const [user_data, set_user_data] = useState(null)
 
   const editProfile = async () => {
@@ -232,7 +232,7 @@ const Profile = () => {
       </> : null}
 
       {/* all posts of a user */}
-      <div className="result flex justify-start items-start gap-2 p-2 flex-wrap">
+      <div className="m-auto result flex flex-col justify-center items-start gap-8 p-2 flex-wrap w-[600px]">
         {posts.length ? posts.map((singlePost, index) => {
           return (
             <Post

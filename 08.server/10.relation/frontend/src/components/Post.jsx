@@ -8,7 +8,7 @@ import { store } from '../store/states';
 import axios from 'axios';
 import { baseUrl } from '../core';
 
-export const Post = ({ singlePost }) => {
+export const Post = ({ singlePost, getAllPosts }) => {
     const { user } = store()
 
     const delete_post = async (postId) => {
@@ -86,6 +86,15 @@ export const Post = ({ singlePost }) => {
                 <h2 className='font-bold text-xl'>{singlePost?.title}</h2>
                 <p>{singlePost?.description}</p>
             </Link>
+            {
+                singlePost?.imageUrl ?
+                    <a href={singlePost.imageUrl} target='_blank'>
+                        <img src={singlePost?.imageUrl} alt="post-image"
+                            className='w-full h-[500px] object-cover object-center'
+                        />
+                    </a>
+                    : null
+            }
             {user?._id === singlePost?.userId?._id ? <div className='flex gap-2'>
                 <button
                     onClick={() => edit_post(singlePost?._id, singlePost?.title, singlePost?.description)}

@@ -1,7 +1,24 @@
-picture with post
+===DONE===
+login
+signup
+logout
+auth guard
+edit profile
+edit password
+edit picture
+post CRUD
+post user data populate
+single post
+single profile
+single profile posts
+upload image with post
 search
+share
+
+===TODO===
 like
-comment
 forgot password
 verify email
 chat app
+comment
+pagination
