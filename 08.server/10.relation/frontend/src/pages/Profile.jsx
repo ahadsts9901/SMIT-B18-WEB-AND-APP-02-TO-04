@@ -129,6 +129,7 @@ const Profile = () => {
   }, [])
 
   const [posts, set_posts] = useState([])
+  const [totalPosts, set_totalPosts] = useState(0)
 
   const getOtherUserProfile = async () => {
     try {
@@ -146,12 +147,14 @@ const Profile = () => {
 
   const getOtherPosts = async () => {
     try {
-      const resp = await axios.get(`${baseUrl}/api/v1/profile/posts/${userId || user._id}`, {
+      const resp = await axios.get(`${baseUrl}/api/v1/profile/posts/${userId || user._id}?skip=${posts?.length}`, {
         headers: {
           token: localStorage.getItem("token")
         }
       })
-      set_posts(resp.data.data)
+      // set_posts(resp.data.data)
+      set_posts([...posts, ...resp.data.data])
+      set_totalPosts(resp.data.totalPosts)
 
     } catch (error) {
       console.error(error);
@@ -238,10 +241,17 @@ const Profile = () => {
             <Post
               singlePost={singlePost}
               key={index}
+              getAllPosts={getOtherPosts}
             />
           )
         }) : <div className='text-center w-full mt-8'>No post found</div>}
       </div>
+      {posts.length === totalPosts ?
+        null
+        : <div className='w-full flex justify-center my-8'>
+          <Button onClick={getOtherPosts}>Load More</Button>
+        </div>
+      }
 
     </div>
   )

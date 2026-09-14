@@ -8,10 +8,12 @@ import { store } from '../store/states'
 import { Post } from '../components/Post'
 import Input from '../components/Input'
 import { useDebounce } from '../hooks/useDebounce'
+import Button from '../components/Button'
 
 const Posts = () => {
   const [posts, set_posts] = useState([])
   const [searchText, setSearchText] = useState('')
+  const [totalPosts, set_totalPosts] = useState(0)
 
   // Debounce the input value by 500ms
   const debouncedSearchText = useDebounce(searchText, 500)
@@ -23,12 +25,13 @@ const Posts = () => {
 
   const getAllPosts = async (searchText = "") => {
     try {
-      const resp = await axios.get(`${baseUrl}/api/v1/post?q=${searchText}`, {
+      const resp = await axios.get(`${baseUrl}/api/v1/post?q=${searchText}&skip=${posts?.length}`, {
         headers: {
           token: localStorage.getItem("token")
         }
       })
-      set_posts(resp.data.data)
+      set_posts([...posts, ...resp.data.data])
+      set_totalPosts(resp.data.totalPosts)
 
     } catch (error) {
       console.error(error);
@@ -58,6 +61,11 @@ const Posts = () => {
           )
         }) : <div className='text-center w-full mt-8'>No post found</div>}
       </div>
+      {posts.length === totalPosts ?
+        null
+        : <div className='w-full flex justify-center my-8'>
+          <Button onClick={getAllPosts}>Load More</Button>
+        </div>}
     </div>
   )
 }

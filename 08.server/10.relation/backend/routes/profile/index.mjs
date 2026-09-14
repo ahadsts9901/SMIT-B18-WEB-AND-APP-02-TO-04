@@ -158,11 +158,23 @@ router.put("/profile-picture", multerMiddleware.any(), async (req, res, next) =>
 
 router.get("/profile/posts/:userId", async (req, res, next) => {
     try {
-        const allPosts = await PostModel.find({ userId: req.params.userId }).populate("userId")
+        const skip = req.query.skip || 0
+
+        const allPosts = await PostModel.find({ userId: req.params.userId })
+            .populate("userId")
+            .populate({
+                path: "likes",
+                select: "firstname lastname profilePicture"
+            })
+            .skip(skip)
+            .limit(5)
+
+        const totalPosts = await PostModel.countDocuments({ userId: req.params.userId })
 
         return res.send({
             message: "profile posts fetched",
-            data: allPosts
+            data: allPosts,
+            totalPosts: totalPosts,
         })
 
     } catch (error) {

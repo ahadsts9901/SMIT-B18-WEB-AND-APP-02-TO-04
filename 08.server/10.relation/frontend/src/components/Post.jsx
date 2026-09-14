@@ -2,14 +2,15 @@ import React from 'react'
 import { FaRegThumbsUp as LikeEmpty, FaThumbsUp as LikeFill } from "react-icons/fa";
 import { FaRegComment as CommentIcon } from "react-icons/fa";
 import { IoMdShare as ShareIcon } from "react-icons/io";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import moment from 'moment';
 import { store } from '../store/states';
 import axios from 'axios';
 import { baseUrl } from '../core';
 
-export const Post = ({ singlePost, getAllPosts }) => {
+export const Post = ({ singlePost }) => {
     const { user } = store()
+    const navigate = useNavigate()
 
     const delete_post = async (postId) => {
         if (!postId) {
@@ -23,7 +24,6 @@ export const Post = ({ singlePost, getAllPosts }) => {
                 }
             })
             alert("post deleted")
-            getAllPosts()
 
         } catch (error) {
             console.error(error);
@@ -50,7 +50,6 @@ export const Post = ({ singlePost, getAllPosts }) => {
                 }
             })
             alert("post updated")
-            getAllPosts()
 
         } catch (error) {
             console.error(error);
@@ -67,6 +66,22 @@ export const Post = ({ singlePost, getAllPosts }) => {
             console.error("Failed to copy text: ", err);
         }
     }
+
+    const likePost = async () => {
+        try {
+            const resp = await axios.post(`${baseUrl}/api/v1/post/like/${singlePost?._id}`, {}, {
+                headers: {
+                    token: localStorage.getItem("token")
+                }
+            })
+
+        } catch (error) {
+            console.error(error);
+            alert(error?.response?.data?.message)
+        }
+    }
+    
+    const isLiked = singlePost?.likes?.find((single_user) => single_user?._id?.toString() === user?._id?.toString())
 
     return (
         <div className='border w-full p-2 flex flex-col gap-2 rounded-lg'>
@@ -104,8 +119,13 @@ export const Post = ({ singlePost, getAllPosts }) => {
                     className='cursor-pointer bg-red-800 hover:bg-red-600 transition-colors duration-400 text-xs text-white py-2 px-4 rounded-md'>Delete</button>
             </div> : null}
             <div className='w-full grid grid-cols-3 gap-2'>
-                <button className='cursor-pointer p-2 w-full flex justify-center items-center gap-2 bg-gray-300 hover:bg-gray-500 hover:text-white rounded-md transition-colors duration-200'> <LikeEmpty /> Like</button>
-                <button className='cursor-pointer p-2 w-full flex justify-center items-center gap-2 bg-gray-300 hover:bg-gray-500 hover:text-white rounded-md transition-colors duration-200'> <CommentIcon /> Comment</button>
+                <button className='cursor-pointer p-2 w-full flex justify-center items-center gap-2 bg-gray-300 hover:bg-gray-500 hover:text-white rounded-md transition-colors duration-200'
+                    onClick={likePost}
+                > {isLiked ? <LikeFill /> : <LikeEmpty />}
+                    Like ({singlePost?.likes?.length || 0})</button>
+                <button className='cursor-pointer p-2 w-full flex justify-center items-center gap-2 bg-gray-300 hover:bg-gray-500 hover:text-white rounded-md transition-colors duration-200'
+                    onClick={() => navigate(`/post/${singlePost?._id}`)}
+                > <CommentIcon /> Comment</button>
                 <button
                     onClick={sharePost}
                     className='cursor-pointer p-2 w-full flex justify-center items-center gap-2 bg-gray-300 hover:bg-gray-500 hover:text-white rounded-md transition-colors duration-200'><ShareIcon /> Share</button>

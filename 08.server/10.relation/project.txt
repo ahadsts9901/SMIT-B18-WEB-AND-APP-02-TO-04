@@ -14,11 +14,12 @@ single profile posts
 upload image with post
 search
 share
+like
+pagination
 
 ===TODO===
-like
+local state updates
 forgot password
 verify email
 chat app
 comment
-pagination
