@@ -16,10 +16,11 @@ search
 share
 like
 pagination
+comment
+local state updates(edit, delete, like, search, pagination)
 
 ===TODO===
-local state updates
+single post
 forgot password
 verify email
 chat app
-comment

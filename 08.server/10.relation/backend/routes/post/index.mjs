@@ -82,6 +82,7 @@ router.get("/post", async (req, res, next) => {
                 path: "likes",
                 select: "firstname lastname profilePicture"
             })
+            .sort({ createdAt: -1 })
             .skip(skip)
             .limit(5)
 

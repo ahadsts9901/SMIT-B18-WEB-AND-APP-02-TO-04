@@ -20,17 +20,21 @@ const Posts = () => {
 
   // Fetch posts whenever the debounced search text updates
   useEffect(() => {
-    getAllPosts(debouncedSearchText)
+    getAllPosts(0, debouncedSearchText)
   }, [debouncedSearchText])
 
-  const getAllPosts = async (searchText = "") => {
+  const getAllPosts = async (skip = 0, searchText = "") => {
     try {
-      const resp = await axios.get(`${baseUrl}/api/v1/post?q=${searchText}&skip=${posts?.length}`, {
+      const resp = await axios.get(`${baseUrl}/api/v1/post?q=${searchText}&skip=${skip}`, {
         headers: {
           token: localStorage.getItem("token")
         }
       })
-      set_posts([...posts, ...resp.data.data])
+      if (skip == 0) {
+        set_posts([...resp.data.data])
+      } else {
+        set_posts([...posts, ...resp.data.data])
+      }
       set_totalPosts(resp.data.totalPosts)
 
     } catch (error) {
@@ -41,7 +45,7 @@ const Posts = () => {
   return (
     <div>
       <Header />
-      <Form getAllPosts={() => getAllPosts(debouncedSearchText)}
+      <Form getAllPosts={() => getAllPosts(0, debouncedSearchText)}
       />
       <div className='w-[800px] m-auto my-8'>
         <Input
@@ -56,7 +60,8 @@ const Posts = () => {
             <Post
               singlePost={singlePost}
               key={index}
-              getAllPosts={() => getAllPosts(debouncedSearchText)}
+              set_posts={set_posts}
+              getAllPosts={() => getAllPosts(0, debouncedSearchText)}
             />
           )
         }) : <div className='text-center w-full mt-8'>No post found</div>}
@@ -64,7 +69,7 @@ const Posts = () => {
       {posts.length === totalPosts ?
         null
         : <div className='w-full flex justify-center my-8'>
-          <Button onClick={getAllPosts}>Load More</Button>
+          <Button onClick={() => getAllPosts(posts.length, debouncedSearchText)}>Load More</Button>
         </div>}
     </div>
   )

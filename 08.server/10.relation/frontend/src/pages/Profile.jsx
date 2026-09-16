@@ -239,6 +239,7 @@ const Profile = () => {
         {posts.length ? posts.map((singlePost, index) => {
           return (
             <Post
+              set_posts={set_posts}
               singlePost={singlePost}
               key={index}
               getAllPosts={getOtherPosts}

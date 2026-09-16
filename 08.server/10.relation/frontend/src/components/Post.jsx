@@ -8,7 +8,7 @@ import { store } from '../store/states';
 import axios from 'axios';
 import { baseUrl } from '../core';
 
-export const Post = ({ singlePost }) => {
+export const Post = ({ singlePost, set_posts }) => {
     const { user } = store()
     const navigate = useNavigate()
 
@@ -23,6 +23,7 @@ export const Post = ({ singlePost }) => {
                     token: localStorage.getItem("token")
                 }
             })
+            set_posts((prev) => prev.filter((post) => post?._id?.toString() !== singlePost?._id?.toString()))
             alert("post deleted")
 
         } catch (error) {
@@ -49,6 +50,14 @@ export const Post = ({ singlePost }) => {
                     token: localStorage.getItem("token")
                 }
             })
+            set_posts((prev) => prev.map((post) =>
+                post?._id?.toString() === singlePost?._id?.toString() ?
+                    {
+                        ...post,
+                        title: updatedTitle,
+                        description: updatedDesc,
+                    }
+                    : post))
             alert("post updated")
 
         } catch (error) {
@@ -67,6 +76,8 @@ export const Post = ({ singlePost }) => {
         }
     }
 
+    const isLiked = singlePost?.likes?.find((single_user) => single_user?._id?.toString() === user?._id?.toString())
+
     const likePost = async () => {
         try {
             const resp = await axios.post(`${baseUrl}/api/v1/post/like/${singlePost?._id}`, {}, {
@@ -75,13 +86,44 @@ export const Post = ({ singlePost }) => {
                 }
             })
 
+            if (isLiked) {
+                // array mai sy apni id nikalni hai
+
+                // likes ky array mai sy apna user nikaala
+                const updatedLikes = singlePost.likes.filter((like) => like?._id?.toString() !== user?._id?.toString())
+
+                // current post ko update krdia likes ky array ko
+                set_posts((prev) => prev.map((post) => post?._id?.toString() === singlePost?._id?.toString() ? {
+                    ...post,
+                    likes: updatedLikes
+                } : post))
+
+            } else {
+                // array mai apni id dalni hai with details
+
+                // likes ky array mai apna user dalna hai
+                const updatedLikes = [
+                    ...singlePost.likes,
+                    {
+                        firstname: user?.firstname,
+                        lastname: user?.lastname,
+                        _id: user?._id,
+                        profilePicture: user?.profilePicture,
+                    }
+                ]
+
+                // current post ko update krdia likes ky array ko
+                set_posts((prev) => prev.map((post) => post?._id?.toString() === singlePost?._id?.toString() ? {
+                    ...post,
+                    likes: updatedLikes
+                } : post))
+            }
+
         } catch (error) {
             console.error(error);
             alert(error?.response?.data?.message)
         }
     }
-    
-    const isLiked = singlePost?.likes?.find((single_user) => single_user?._id?.toString() === user?._id?.toString())
 
     return (
         <div className='border w-full p-2 flex flex-col gap-2 rounded-lg'>

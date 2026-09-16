@@ -7,7 +7,7 @@ import Header from "./Header"
 
 const SinglePost = () => {
     const params = useParams()
-    const [singlePost, setSinglePost] = useState(null)
+    const [singlePost, setSinglePost] = useState([])
 
     useEffect(() => {
         getSinglePost()
@@ -20,7 +20,7 @@ const SinglePost = () => {
                     token: localStorage.getItem("token")
                 }
             })
-            setSinglePost(resp.data.data)
+            setSinglePost([resp.data.data])
 
         } catch (error) {
             console.error(error);
@@ -32,12 +32,13 @@ const SinglePost = () => {
             <Header />
             <div className='p-4 w-[80%] m-auto'>
                 <Post
-                    singlePost={singlePost}
+                    singlePost={singlePost[0]}
                     getAllPosts={getSinglePost}
+                    set_posts={setSinglePost}
                 />
                 <h2 className='text-xl my-4'>Liked by:</h2>
                 <div className='mt-4 flex gap-2'>
-                    {singlePost?.likes?.map((like, i) => {
+                    {singlePost[0]?.likes?.map((like, i) => {
                         return (
                             <Link
                                 to={`/profile/${like?._id}`}
