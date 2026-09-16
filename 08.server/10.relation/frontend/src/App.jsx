@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import Posts from "./pages/Post"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
+import VerifyEmail from "./pages/VerifyEmail"
 import NotFound from "./pages/NotFound"
 import axios from "axios"
 import { baseUrl } from "./core"
@@ -57,6 +58,7 @@ const App = () => {
           <Routes>
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
+            <Route path='/verify-email' element={<VerifyEmail />} />
             <Route path='*' element={<Navigate to="/login" />} />
           </Routes> :
           null

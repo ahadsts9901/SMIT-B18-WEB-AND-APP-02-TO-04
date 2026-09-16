@@ -20,7 +20,6 @@ comment
 local state updates(edit, delete, like, search, pagination)
 
 ===TODO===
-single post
 forgot password
 verify email
 chat app
