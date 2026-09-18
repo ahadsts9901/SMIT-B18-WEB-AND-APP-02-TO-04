@@ -13,6 +13,8 @@ import SplahScreen from "./pages/SplahScreen"
 import Profile from "./pages/Profile"
 import SinglePost from "./components/SinglePost"
 import Chat from "./pages/Chat"
+import ForgotPassword from "./pages/ForgotPassword"
+import ResetPassword from "./pages/ResetPassword"
 
 const App = () => {
   const { global_login, global_logout, user, isLogin } = store()
@@ -59,6 +61,8 @@ const App = () => {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/verify-email' element={<VerifyEmail />} />
+            <Route path='/forgot-password' element={<ForgotPassword />} />
+            <Route path='/reset-password' element={<ResetPassword />} />
             <Route path='*' element={<Navigate to="/login" />} />
           </Routes> :
           null

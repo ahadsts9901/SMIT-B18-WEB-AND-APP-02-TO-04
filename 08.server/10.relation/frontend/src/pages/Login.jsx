@@ -32,7 +32,20 @@ const Login = () => {
 
     } catch (error) {
       console.error(error);
-      alert(error.response.data.message)
+      if (error.response.data.message === "email is not verified") {
+        await axios.post(`${baseUrl}/api/v1/send-otp`, {
+          email: email
+        })
+
+        navigate("/verify-email", {
+          state: {
+            email: email
+          }
+        })
+
+      } else {
+        alert(error.response.data.message)
+      }
     }
   }
 
@@ -54,6 +67,7 @@ const Login = () => {
       />
 
       <p>Dont have an account? <Link className='text-blue-500' to="/signup">Signup</Link></p>
+      <Link className='text-blue-500' to="/forgot-password">Forgot Password</Link>
 
       <Button type="submit">Login</Button>
     </form>

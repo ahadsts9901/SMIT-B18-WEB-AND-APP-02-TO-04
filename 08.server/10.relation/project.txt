@@ -18,8 +18,9 @@ like
 pagination
 comment
 local state updates(edit, delete, like, search, pagination)
+verify email
+forgot password/reset password
 
 ===TODO===
-forgot password
-verify email
 chat app
+google login
