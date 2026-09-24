@@ -1,0 +1,26 @@
+===DONE===
+login
+signup
+logout
+auth guard
+edit profile
+edit password
+edit picture
+post CRUD
+post user data populate
+single post
+single profile
+single profile posts
+upload image with post
+search
+share
+like
+pagination
+comment
+local state updates(edit, delete, like, search, pagination)
+verify email
+forgot password/reset password
+
+===TODO===
+chat app
+google login
